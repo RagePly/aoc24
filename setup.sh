@@ -14,7 +14,7 @@ if [ -e $PY_VENV ]; then
     . $PY_VENV
 else
     echo "[INFO]: venv does not exist, creating"
-    python3 -m venv .
+    python3 -m venv --without-scm-ignore-files .
 
     echo "[INFO]: Activating venv"
     . $PY_VENV
