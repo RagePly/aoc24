@@ -3,7 +3,7 @@
 /bin/
 /include
 /lib/
-/lib32
+/lib64
 /pyvenv.cfg
 
 # Ignore pycache
