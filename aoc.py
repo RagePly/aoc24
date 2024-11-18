@@ -10,14 +10,14 @@ import datetime
 
 def display_time(t):
     if t == 0:
-        return "0 s"
+        return "\x1b[34m0\x1b[m s"
     elif t < 10e-6:
-        return f"{t*1e+9:.0f} ns"
+        return f"\x1b[34m{t*1e+9:.0f}\x1b[m ns"
     elif t < 10e-3:
-        return f"{t*1e+6:.0f} \u03bcs"
+        return f"\x1b[34m{t*1e+6:.0f}\x1b[m \u03bcs"
     elif t < 10:
-        return f"{t*1e+3:.0f} ms"
-    return f"{t:.0f} s"
+        return f"\x1b[34m{t*1e+3:.0f}\x1b[m ms"
+    return f"\x1b[34m{t:.0f}\x1b[m s"
 
 def run_part(part, source, bench):
     if source is None:
@@ -41,7 +41,8 @@ def print_part(nr, part, output, t, s, hide, /, test_nr = None):
     output_disp = "~" if hide else output
     part_disp = f"day{nr}.part{part}" + (f".{test_nr}" if test_nr is not None else "")
     if "\n" not in output_disp:
-        print(f"{part_disp}: {output_disp} ({time_display})")
+        fmt = "\x1b[33m" if test_nr is None else "\x1b[32m"
+        print(f"{part_disp}: {fmt}{output_disp}\x1b[m ({time_display})")
     else:
         print(f"{part_disp} ({time_display}):\n{output_disp}")
 
