@@ -45,16 +45,15 @@ def print_part(nr, part, output, t, s, hide, /, test_nr = None):
     else:
         print(f"{part_disp} ({time_display}):\n{output_disp}")
 
-    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("--all", "-a", action="store_true") 
     parser.add_argument("--days", "-d", nargs="+", type=int)
+    parser.add_argument("--parts", "-p", type=lambda s: list(map(int, s.split(","))), default=[1,2])
     parser.add_argument("--bench", "-b", action="store_true")
     parser.add_argument("--hide", action="store_true")
     parser.add_argument("--no-test", action="store_true")
-    parser.add_argument("--only-test", action="store_true")
-    parser.add_argument("--improved", action="store_true")
+    parser.add_argument("--only-test", "-t", action="store_true")
     parser.add_argument("--original", action="store_true")
     args = parser.parse_args()
 
@@ -64,13 +63,9 @@ if __name__ == "__main__":
     hide_res = args.hide
     run_test = not args.no_test
     only_test = args.only_test
-    use_improved = args.improved
     use_original = args.original
+    run_parts = args.parts
     
-    if use_improved and use_original:
-        print("can't use only improved while also only using the original", file=sys.stderr)
-        sys.exit(1)
-
     if (not run_test) and only_test:
         print("can't ignore tests and also only run them", file=sys.stderr)
         sys.exit(1)
@@ -130,25 +125,12 @@ if __name__ == "__main__":
                 with open(fn) as fp:
                     tests.append((fp.read(), int(fn.suffixes[0][1:])))
 
-        def_parts = filter(lambda s: s.startswith("part"), dir(day))
-        parts = {}
-        for p in def_parts:
-            parts[p[4:]] = getattr(day,p)
+    
 
-        parts["1"] = parts.get("1")
-        parts["2"] = parts.get("2")
+        parts = {p: getattr(day, f"part{p}", None) for p in run_parts}
+        parts = sorted(filter(lambda p: p[1] is not None, parts.items()))
 
-        has_improved = set()
-        for p in parts:
-            if p[0] in ("1","2") and len(p) > 1:
-                has_improved.add(p[0])
-        parts = sorted(parts.items()) 
         for part,f in parts:
-            if use_improved and part in has_improved:
-                continue
-            if use_original and part not in ("1","2"):
-                continue
-
             for test_source, test_nr in tests:
                 r, t, s = run_part(f, test_source, run_bench)
                 print_part(nr, part, r, t, s, hide_res, test_nr=test_nr)
