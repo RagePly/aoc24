@@ -13,3 +13,7 @@ __pycache__
 # Ignore AoC input data
 
 /input
+
+# Ignore .env
+
+/.env

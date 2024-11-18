@@ -1,6 +1,5 @@
 #!/bin/env python3
 
-import dotenv
 import requests
 import datetime
 import time
@@ -8,10 +7,22 @@ import argparse
 import sys
 import os
 import pathlib
+import re
+
+def load_dotenv():
+    dotenv_p = pathlib.Path(".env")
+
+    if not dotenv_p.is_file():
+        print("NOTE: .env not found")
+        return
+
+    with open(dotenv_p, "r") as fp:
+        for m in re.finditer(r"^([a-zA-Z][a-zA-Z_0-9]*)=(.*)$", fp.read(), flags=re.MULTILINE):
+            os.environ[m[1]] = m[2]
 
 class AocError(Exception): ...
 def main() -> int: 
-    dotenv.load_dotenv()
+    load_dotenv()
 
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("--dry", action="store_true", help="only displays what endpoints will be called and files affected")
