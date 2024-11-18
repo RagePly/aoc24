@@ -1,0 +1,15 @@
+# Ignore venv items
+
+/bin/
+/include
+/lib/
+/lib32
+/pyvenv.cfg
+
+# Ignore pycache
+
+__pycache__
+
+# Ignore AoC input data
+
+/input
