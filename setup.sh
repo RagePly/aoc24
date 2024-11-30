@@ -24,3 +24,6 @@ else
         pip3 install -r $PY_REQ
     fi
 fi
+
+echo "[INFO]: Setting up custom path"
+export PYTHONPATH="$PWD/scripts:$PYTHONPATH"
