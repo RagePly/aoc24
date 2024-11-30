@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo day*.py | entr -c ./aoc.py $*
+ls day*.py | sed -r 's/ /\n/g' | entr -c ./aoc.py $*
