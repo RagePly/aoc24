@@ -175,7 +175,7 @@ def main():
     ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
     # #############################################################################################
 
-    plt.title("Scores", color = greenHighlight)
+    plt.title("Ranking", color = greenHighlight)
     l, r = plt.xlim()
     plt.xlim(l, r + 0.15)
 
