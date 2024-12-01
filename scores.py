@@ -4,9 +4,10 @@ from re import sub, finditer, MULTILINE
 from pathlib import Path
 from requests import get
 from itertools import accumulate
+from matplotlib import rcParams
 
 import matplotlib.pyplot as plt
-import os, time
+import os, time, math
 
 def load_dotenv():
     dotenv_p = Path(".env")
@@ -49,6 +50,16 @@ def begin_log(*args): print(*args, end="...")
 def end_log(*args): print(*args)
 
 def main():
+    greenText = "#009900"
+    greenHighlight = "#99ff99"
+    rcParams["font.family"] = "Source Code Pro"
+    rcParams["figure.facecolor"] = "#0f0f23"
+    rcParams["legend.edgecolor"] = greenText
+    rcParams["text.color"] = greenText
+    rcParams["axes.facecolor"] = "#0f0f23"
+    rcParams["axes.edgecolor"] = greenText
+    rcParams["xtick.color"] = greenText
+    rcParams["ytick.color"] = greenText
     begin_log("check rate limit")
     # check that requests are limited to once every 15-minutes
     cache_folder = Path(os.getenv("HOME")) / ".cache"
@@ -117,11 +128,10 @@ def main():
     part_header, column_headers, *scores = score_text.splitlines()
 
     ranking = []
-    times = []
     for score in scores:
         days, t1, r1, _, t2, r2, _ = score.split()
-        times.append(time.strptime(t1, "%H:%M:%S"))
-        times.append(time.strptime(t2, "%H:%M:%S"))
+        # times.append(time.strptime(t1, "%H:%M:%S"))
+        # times.append(time.strptime(t2, "%H:%M:%S"))
         ranking.append(int(r1))
         ranking.append(int(r2))
 
@@ -135,24 +145,23 @@ def main():
         color = [c for _ in ranking for c in ["#9999cc", "#ffff66"]]
     )
 
-    for r, p, t in zip(ranking, positions, times):
-        if t.tm_hour > 0:
-            ts = f"{t.tm_hour}h {t.tm_min}m {t.tm_sec}s"
-        else:
-            ts = f"{t.tm_min}m {t.tm_sec}s"
-        plt.text(p, r, f"\n{r}\n{ts}", ha="center", va="top")
+    for r, p in zip(ranking, positions):
+        plt.text(p, r + 10, f"{r}", ha="center", va="bottom", rotation = 60)
     ticks = list(range(1000, max(ranking) + 1000, 1000))
     plt.yticks(ticks)
     plt.xticks(days, [f"Day {d}" for d in days])
-    plt.plot([1 - 0.4, max(days) + 0.4], [1000, 1000], label="Goal", color = "red")
+    plt.plot([1 - 0.4, max(days) + 0.6], [1000, 1000], label="Goal", color = "red")
     avg_score = [avg[0] for avg in accumulate(
             ranking[1::2],
             lambda a, x: (((a[1] * a[0]) + x) / (a[1] + 1), a[1] + 1),
             initial=(0, 0)
             )][1:]
-    plt.text(days[-1] + 0.25, avg_score[-1], f"{int(avg_score[-1])}", va="center", ha="left")
+
+    #            bar  barwidth extra
+    avg_offset = 0.2 + 0.38/2 + 0.04
+    plt.text(days[-1] + avg_offset, avg_score[-1], f"{int(avg_score[-1])}", va="center", ha="left")
     plt.plot(
-        [d + 0.2 for d in days],
+        [d + avg_offset for d in days],
         avg_score,
         label = "Average ranking")
 
@@ -166,7 +175,12 @@ def main():
     ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
     # #############################################################################################
 
-    plt.title("Scores")
+    plt.title("Scores", color = greenHighlight)
+    l, r = plt.xlim()
+    plt.xlim(l, r + 0.15)
+
+    d, u = plt.ylim()
+    plt.ylim(d, u + 100)
 
     Path("./res").mkdir(exist_ok=True)
     plt.savefig("res/scores.png")
