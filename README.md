@@ -16,6 +16,24 @@ This script does follow the [automation guidelines](https://www.reddit.com/r/adv
 
 Sets up a correct `venv` and installs all required packages. Will skip the setup and just activate if it already exists.
 
+## Times
+
+```
+imported: 1 solution(s) in 263 μs
+running: all with benchmark
+day1.part1: ~ (638 μs 15657 samples)
+day1.part2: ~ (19 ms 535 samples)
+total: 19 ms
+```
+
+## Score
+
+```
+      -------Part 1--------   -------Part 2--------
+Day       Time  Rank  Score       Time  Rank  Score
+  1   00:02:17   431      0   00:05:41  1025      0
+```
+
 ## Environment
 
 Description of my setup and how I use it.
