@@ -28,11 +28,14 @@ total: 19 ms
 
 ## Score
 
-```
+```{scores}
       -------Part 1--------   -------Part 2--------
 Day       Time  Rank  Score       Time  Rank  Score
   1   00:02:17   431      0   00:05:41  1025      0
+
 ```
+
+![](res/scores.png)
 
 ## Environment
 
