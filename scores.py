@@ -126,7 +126,8 @@ def main():
     
     begin_log("rendering scores")
     part_header, column_headers, *scores = score_text.splitlines()
-
+        
+    scores.reverse()
     ranking = []
     for score in scores:
         days, t1, r1, _, t2, r2, _ = score.split()
