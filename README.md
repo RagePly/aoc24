@@ -19,11 +19,13 @@ Sets up a correct `venv` and installs all required packages. Will skip the setup
 ## Times
 
 ```
-imported: 1 solution(s) in 263 μs
+imported: 2 solution(s) in 365 μs
 running: all with benchmark
-day1.part1: ~ (638 μs 15657 samples)
-day1.part2: ~ (19 ms 535 samples)
-total: 19 ms
+day1.part1: ~ (637 μs 15679 samples)
+day1.part2: ~ (19 ms 538 samples)
+day2.part1: ~ (1230 μs 8131 samples)
+day2.part2: ~ (4951 μs 2020 samples)
+total: 25 ms
 ```
 
 ## Score
@@ -31,6 +33,7 @@ total: 19 ms
 ```{scores}
       -------Part 1--------   -------Part 2--------
 Day       Time  Rank  Score       Time  Rank  Score
+  2   00:08:38  1971      0   00:24:36  3697      0
   1   00:02:17   431      0   00:05:41  1025      0
 
 ```
