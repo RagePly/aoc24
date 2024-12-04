@@ -19,15 +19,17 @@ Sets up a correct `venv` and installs all required packages. Will skip the setup
 ## Times
 
 ```
-imported: 3 solution(s) in 1940 μs
+imported: 4 solution(s) in 569 μs
 running: all with benchmark
-day1.part1: ~ (638 μs 15667 samples)
-day1.part2: ~ (19 ms 538 samples)
-day2.part1: ~ (1266 μs 7897 samples)
-day2.part2: ~ (5107 μs 1958 samples)
-day3.part1: ~ (289 μs 34550 samples)
-day3.part2: ~ (393 μs 25418 samples)
-total: 26 ms
+day1.part1: ~ (646 μs 15462 samples)
+day1.part2: ~ (19 ms 537 samples)
+day2.part1: ~ (1227 μs 8146 samples)
+day2.part2: ~ (5130 μs 1950 samples)
+day3.part1: ~ (285 μs 35013 samples)
+day3.part2: ~ (388 μs 25730 samples)
+day4.part1: ~ (15 ms 673 samples)
+day4.part2: ~ (19 ms 530 samples)
+total: 60 ms
 ```
 
 ## Score
@@ -35,6 +37,7 @@ total: 26 ms
 ```{scores}
       -------Part 1--------   -------Part 2--------
 Day       Time  Rank  Score       Time  Rank  Score
+  4   00:20:38  4217      0   00:24:06  2409      0
   3   00:02:15   285      0   00:07:34   574      0
   2   00:08:38  1971      0   00:24:36  3697      0
   1   00:02:17   431      0   00:05:41  1025      0
