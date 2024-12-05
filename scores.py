@@ -5,6 +5,7 @@ from pathlib import Path
 from requests import get
 from itertools import accumulate
 from matplotlib import rcParams
+from argparse import ArgumentParser
 
 import matplotlib.pyplot as plt
 import os, time, math
@@ -50,6 +51,11 @@ def begin_log(*args): print(*args, end="...")
 def end_log(*args): print(*args)
 
 def main():
+    argparser = ArgumentParser()
+    argparser.add_argument("-y", "--year", type=int, default = 2024, choices=list(range(2015, 2025)))
+    argparser.add_argument("-o", "--output", type=Path, default=Path("res/scores.png"))
+    args = argparser.parse_args()
+
     greenText = "#009900"
     greenHighlight = "#99ff99"
     rcParams["font.family"] = "Source Code Pro"
@@ -105,7 +111,7 @@ def main():
         cookies = {
             "session": os.environ["AOC_SESSION"],
         }
-        resp = get("https://adventofcode.com/2024/leaderboard/self", cookies=cookies)
+        resp = get(f"https://adventofcode.com/{args.year}/leaderboard/self", cookies=cookies)
 
         if not resp.status_code == 200:
             end_log(ERROR)
@@ -184,7 +190,7 @@ def main():
     plt.ylim(d, u + 100)
 
     Path("./res").mkdir(exist_ok=True)
-    plt.savefig("res/scores.png")
+    plt.savefig(args.output)
 
     end_log(OK)
 
