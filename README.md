@@ -19,27 +19,29 @@ Sets up a correct `venv` and installs all required packages. Will skip the setup
 ## Times
 
 ```
-imported: 9 solution(s) in 2859 μs
+imported: 10 solution(s) in 1179 μs
 running: all with benchmark
-day1.part1: ~ (648 μs 15431 samples)
-day1.part2: ~ (19 ms 536 samples)
-day2.part1: ~ (1237 μs 8081 samples)
-day2.part2: ~ (4957 μs 2018 samples)
-day3.part1: ~ (288 μs 34752 samples)
-day3.part2: ~ (390 μs 25602 samples)
-day4.part1: ~ (15 ms 669 samples)
-day4.part2: ~ (19 ms 526 samples)
-day5.part1: ~ (2055 μs 4866 samples)
-day5.part2: ~ (1551 μs 6448 samples)
-day6.part1: ~ (2696 μs 3710 samples)
-day6.part2: ~ (3349 ms 3 samples)
-day7.part1: ~ (4118 μs 2429 samples)
-day7.part2: ~ (7107 μs 1407 samples)
-day8.part1: ~ (403 μs 24811 samples)
-day8.part2: ~ (942 μs 10617 samples)
-day9.part1: ~ (7772 μs 1287 samples)
-day9.part2: ~ (1615 ms 7 samples)
-total: 5052 ms
+day1.part1: ~ (632 μs 15809 samples)
+day1.part2: ~ (19 ms 535 samples)
+day2.part1: ~ (1236 μs 8089 samples)
+day2.part2: ~ (5057 μs 1978 samples)
+day3.part1: ~ (276 μs 36240 samples)
+day3.part2: ~ (398 μs 25080 samples)
+day4.part1: ~ (15 ms 677 samples)
+day4.part2: ~ (19 ms 531 samples)
+day5.part1: ~ (2040 μs 4902 samples)
+day5.part2: ~ (1535 μs 6515 samples)
+day6.part1: ~ (2725 μs 3670 samples)
+day6.part2: ~ (3331 ms 4 samples)
+day7.part1: ~ (4260 μs 2348 samples)
+day7.part2: ~ (7258 μs 1378 samples)
+day8.part1: ~ (405 μs 24656 samples)
+day8.part2: ~ (938 μs 10658 samples)
+day9.part1: ~ (7767 μs 1288 samples)
+day9.part2: ~ (1600 ms 7 samples)
+day10.part1: ~ (12 ms 858 samples)
+day10.part2: ~ (12 ms 853 samples)
+total: 5041 ms
 ```
 
 ## Environment
