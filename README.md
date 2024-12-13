@@ -19,33 +19,35 @@ Sets up a correct `venv` and installs all required packages. Will skip the setup
 ## Times
 
 ```
-imported: 12 solution(s) in 1500 μs
+imported: 13 solution(s) in 3784 μs
 running: all with benchmark
-day1.part1: ~ (637 μs 15689 samples)
-day1.part2: ~ (19 ms 531 samples)
-day2.part1: ~ (1227 μs 8148 samples)
-day2.part2: ~ (4962 μs 2016 samples)
-day3.part1: ~ (285 μs 35038 samples)
-day3.part2: ~ (397 μs 25150 samples)
-day4.part1: ~ (15 ms 677 samples)
-day4.part2: ~ (19 ms 538 samples)
-day5.part1: ~ (2039 μs 4905 samples)
-day5.part2: ~ (1543 μs 6481 samples)
-day6.part1: ~ (2710 μs 3690 samples)
-day6.part2: ~ (3358 ms 3 samples)
-day7.part1: ~ (4109 μs 2434 samples)
-day7.part2: ~ (7113 μs 1406 samples)
-day8.part1: ~ (408 μs 24493 samples)
-day8.part2: ~ (946 μs 10570 samples)
-day9.part1: ~ (8135 μs 1230 samples)
-day9.part2: ~ (1638 ms 7 samples)
-day10.part1: ~ (12 ms 844 samples)
-day10.part2: ~ (12 ms 836 samples)
-day11.part1: ~ (1530 μs 6535 samples)
-day11.part2: ~ (58 ms 173 samples)
-day12.part1: ~ (23 ms 441 samples)
-day12.part2: ~ (28 ms 353 samples)
-total: 5217 ms
+day1.part1: ~ (646 μs 15478 samples)
+day1.part2: ~ (19 ms 539 samples)
+day2.part1: ~ (1215 μs 8226 samples)
+day2.part2: ~ (4964 μs 2015 samples)
+day3.part1: ~ (291 μs 34310 samples)
+day3.part2: ~ (398 μs 25116 samples)
+day4.part1: ~ (16 ms 634 samples)
+day4.part2: ~ (20 ms 508 samples)
+day5.part1: ~ (2159 μs 4631 samples)
+day5.part2: ~ (1628 μs 6143 samples)
+day6.part1: ~ (2839 μs 3523 samples)
+day6.part2: ~ (3511 ms 3 samples)
+day7.part1: ~ (4247 μs 2355 samples)
+day7.part2: ~ (7519 μs 1330 samples)
+day8.part1: ~ (422 μs 23680 samples)
+day8.part2: ~ (980 μs 10203 samples)
+day9.part1: ~ (8040 μs 1244 samples)
+day9.part2: ~ (1701 ms 6 samples)
+day10.part1: ~ (12 ms 835 samples)
+day10.part2: ~ (12 ms 821 samples)
+day11.part1: ~ (1579 μs 6332 samples)
+day11.part2: ~ (60 ms 167 samples)
+day12.part1: ~ (24 ms 424 samples)
+day12.part2: ~ (30 ms 335 samples)
+day13.part1: ~ (6449 ms 2 samples)
+day13.part2: ~ (1337 μs 7478 samples)
+total: 12 s
 ```
 
 ## Environment
