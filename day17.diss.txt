@@ -1,0 +1,8 @@
+B = A % 8
+B = B ^ 1
+C = A // 2**B (>> B)
+A = A // 2**3 (>> 3)
+B = B ^ C
+B = B ^ 6
+out B
+if A != 0 jump 0 (halt if A == 0)
