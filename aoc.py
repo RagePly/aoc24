@@ -46,6 +46,9 @@ def print_part(nr, part, output, t, s, hide, /, test_nr = None):
     else:
         print(f"{part_disp} ({time_display}):\n{output_disp}")
 
+def false_print(*args, **kwargs):
+    pass
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("--all", "-a", action="store_true") 
@@ -56,6 +59,7 @@ if __name__ == "__main__":
     parser.add_argument("--no-test", action="store_true")
     parser.add_argument("--only-test", "-t", action="store_true")
     parser.add_argument("--original", action="store_true")
+    parser.add_argument("--no-print", action="store_true")
     args = parser.parse_args()
 
     run_all = args.all
@@ -66,6 +70,7 @@ if __name__ == "__main__":
     only_test = args.only_test
     use_original = args.original
     run_parts = args.parts
+    hide_print = args.no_print
     
     if (not run_test) and only_test:
         print("can't ignore tests and also only run them", file=sys.stderr)
@@ -96,6 +101,8 @@ if __name__ == "__main__":
         module_name = file.stem
         day_nr = int(module_name[3:])
         day = importlib.import_module(module_name)
+        if hide_print:
+            day.print = false_print
         heapq.heappush(days, (day_nr, day))
     t2 = time.time()
 
